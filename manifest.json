@@ -1,16 +1,26 @@
+
+
 {
-    "name" : "SN AdBlocker",
-    "version" : "1.0",
-    "description": "AdBlocker for Chrome",
-    "permissions": ["webRequest", "webRequestBlocking","<all_urls>",
-    "tabs","activeTab"],
-    "background":{
-        "scripts": ["background.js"]
-    },
+    "manifest_version": 2,
+
+    "name": "Ads Blocker",
+    "description": "Block ads on the web",
+    "version": "1.0",
     "icons":{
         "16": "icon/16.png",
         "48": "icon/48.png",
         "128": "icon/128.png"
     },
-    "manifest_version": 2
+
+    "content_scripts": [
+        {
+            "js": ["background.js"],
+            "run_at":"document_idle",
+            "matches":["<all_urls>"]
+        }],
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ]
+    
 }
